@@ -6,7 +6,7 @@ public class Calculadora {
 
 
     public void restar(int sumando2, int sumando1) {
-        System.out.println("La resta es " + (sumando2-sumando1));
+        System.out.println("La resta es " + (sumando1-sumando2));
     }
 
     public void multiplicar(int sumando2, int sumando1) {
@@ -14,6 +14,6 @@ public class Calculadora {
     }
 
     public void dividir(int sumando1, int sumando2) {
-        System.out.println("La division es "+ (sumando2/sumando1));
+        System.out.println("La division es "+ (sumando1/sumando2));
     }
 }
