@@ -8,4 +8,4 @@ public class Main {
         Ejercicio3 ejercicio3 = new Ejercicio3();
         ejercicio3.raiz(numero);
     }
-}
+}12

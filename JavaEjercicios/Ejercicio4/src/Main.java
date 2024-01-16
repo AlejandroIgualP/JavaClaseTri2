@@ -15,7 +15,7 @@ public class Main {
         //Scanner scanner = new Scanner(System.in);
         //System.out.println("Dame un numero ");
         //int numero = scanner.nextInt();
-        //for(int i = 1; i<=3; i++)
+        //for(int i = 1; i<3; i++)
             //System.out.println((int)(Math.random()*(numero-0+1)+0));
 
         //->Modifica el programa para pedir al usuario dos números enteros positivos y el
