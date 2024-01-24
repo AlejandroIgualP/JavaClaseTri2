@@ -23,10 +23,7 @@ public class Ejercicio15 {
         double min_bueno = Math.min(min, num3);
         System.out.println(Math.round(min_bueno));
 
-        int mediano = new Integer();
-        if  (mediano != mayor_bueno && mediano != min_bueno) {
-            System.out.println(mediano);
-        }
+
     }
 }
 
