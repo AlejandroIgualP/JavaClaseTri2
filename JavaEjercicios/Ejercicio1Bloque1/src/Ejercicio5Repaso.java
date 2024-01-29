@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class Ejercicio4Repaso {
+public class Ejercicio5Repaso {
     public static void main(String[] args) {
-        Ejercicio4Repaso ejercicio4Repaso = new Ejercicio4Repaso();
-        Ejercicio4Repaso.OrdenaryBuscar();
+        Ejercicio5Repaso ejercicio5Repaso = new Ejercicio5Repaso();
+        Ejercicio5Repaso.OrdenaryBuscar();
     }
     public static void OrdenaryBuscar(){
         Scanner scanner = new Scanner(System.in);
@@ -20,7 +20,7 @@ public class Ejercicio4Repaso {
         Collections.sort(lista);
         System.out.println("Lista ordenada" +lista);
 
-         System.out.println("Dime la palabra que quieres buscar");
+        System.out.println("Dime la palabra que quieres buscar");
         String palabra = scanner.next();
         boolean comprobar = lista.contains(palabra);
         if (comprobar == true){
@@ -28,7 +28,8 @@ public class Ejercicio4Repaso {
         }else{
             System.out.println("La palabra no esta en la lista ");
         }
+        System.out.println("Perro aparece "+ Collections.frequency(lista,"Perro"+ "veces"));
+        }
 
-    }
+        }
 
-}
