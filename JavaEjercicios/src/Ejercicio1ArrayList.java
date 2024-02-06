@@ -19,10 +19,11 @@ public class Ejercicio1ArrayList {
         System.out.println(lista);
 
         //Recorrer una lista
-        for (int i = 0; i < lista.size(); i++) {
-            System.out.println(lista.get(i));
+        ImprimirUnaLista(lista);
 
-
+        //Para recorrer una lista
+        for (String string: lista) {
+            System.out.println("La lista es "+ string);
 
         }
         //Añadir elemento a una lista
@@ -38,9 +39,14 @@ public class Ejercicio1ArrayList {
         lista.remove(palabra);
         System.out.println(lista);
 
+    }
+
+    private static void ImprimirUnaLista(ArrayList<String> lista) {
+        for (int i = 0; i < lista.size(); i++) {
+            System.out.println(lista.get(i));
 
 
 
-
+        }
     }
 }

@@ -18,6 +18,7 @@ public class Ejercicio5TreeMap {
         //Te la muestra de manera Ascendente
         System.out.println(tree_map.descendingMap());
 
+
         //Recuperar un valor
         Integer ValorBurro = tree_map.get("Burro");
         System.out.println("El valor de burro es "+ ValorBurro);
