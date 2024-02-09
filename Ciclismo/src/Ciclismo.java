@@ -1,4 +1,6 @@
-public class Ciclismo {
+import java.util.ArrayList;
+
+public class Ciclismo extends ArrayList<Ciclismo> {
     private String name;
     private String pais;
     private Integer edad;
