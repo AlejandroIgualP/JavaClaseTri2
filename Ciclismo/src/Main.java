@@ -1,61 +1,48 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
 
-
-public class Main extends Ciclismo {
-    public Main(String name, String pais, Integer edad) {
-        super(name, pais, edad);
-    }
-
+class Main {
     public static void main(String[] args) {
-        //Leer los argumentos de un Archivos en un directorio
+        //Recorrer los archivos para asi poder ver su contenido
+        HashMap<String,String> ciclistaEquipo = new HashMap<>();
+        HashMap<String,Integer> numero_ciclistas = new HashMap<>();
 
-        File directorio = new File("C:\\Users\\Aleja\\OneDrive\\Escritorio\\Java\\JavaClaseTri2\\Ciclismo\\src\\Equipos");
-        if (directorio.isDirectory()) {
+        //Coger cada Archivo para ver su contenido
+        String ruta = "src//Equipos";
+
+        File directorio = new File(ruta);
+        if(directorio.exists()&&directorio.isDirectory()){
             File[] archivos = directorio.listFiles();
-            if (archivos != null) {
-                for (File archivo : archivos) {
-                    try {
-                        FileReader fileReader = new FileReader(archivo.getPath());
-                        BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-                        String linea;
-                        int i = 1;
-                        HashMap<Ciclismo,String> ciclista = new HashMap<>();
-                        HashMap<String, Integer> equipo = new HashMap<>();
-                        while ((linea = bufferedReader.readLine()) != null) {
-
-                            //Separa el nombre
-                            String[] nombre = linea.split("\\|");
-                            String nombre1 = nombre[0];
-
-                            //Separa el pais
-                            String[] pais = linea.split("\\|");
-                            String pais1 = pais[1];
-
-                            //Separa la edad
-                            Integer edad = Integer.valueOf(nombre[2].split(" ")[1]);
-
-                            //Te añade en los datos en una lista y aparte con el regex ponemos al equipo que pertenecen
-                            ciclista.put(new Ciclismo(nombre1,pais1,edad),archivo.getName().split("\\.txt")[0]);
-
-                            // Te muestra lo ciclistas de cada equipo
-                            String nomeq = (archivo.getName().split("\\.txt")[0]);
-                            equipo.put(archivo.getName().split("\\.txt")[0],i++);
-
-
-
+            for (File archivo: archivos) {
+                String nombreEquipo = archivo.getName().replace(".txt","").trim();
+                System.out.println(archivo.getName());
+                numero_ciclistas.put(nombreEquipo,0);
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(new FileReader(archivo));
+                    String linea = " ";
+                    //Mientras que bufferReader lea una linea que siga cuando no haya se parara
+                    while ((linea = bufferedReader.readLine())!=null) {
+                        // Te va a dividir por partes el contenido del fichero
+                        String[] partes = linea.trim().split("\\|");
+                        String nombre = partes[0].trim();
+                        String pais = partes[1].trim();
+                        String edad = partes[2].trim().replace("años"," ").trim();
+                        // Recorrerlo para que te lo muestre
+                        for (String parte : partes){
+                            System.out.println(parte);
                         }
-                        bufferedReader.close();
-                    } catch (IOException io) {
-                        System.out.println("No se ha podido leer el archivo " + archivo.getName());
                     }
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException(e);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
                 }
+                //Todos archivos tratados
+                System.out.println(numero_ciclistas);
             }
+        }else {
+            System.out.println("El directorio no existe");
+            System.exit(2);//Para cerrar un Programa
         }
-
     }
 }

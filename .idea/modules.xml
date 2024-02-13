@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JavaEjercicios/Ejercicio15/Ejercicio15.iml" filepath="$PROJECT_DIR$/JavaEjercicios/Ejercicio15/Ejercicio15.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaEjercicios/Ejercicios17/Ejercicios17.iml" filepath="$PROJECT_DIR$/JavaEjercicios/Ejercicios17/Ejercicios17.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EjerciciosExcepciones/EjerciciosExcepciones.iml" filepath="$PROJECT_DIR$/EjerciciosExcepciones/EjerciciosExcepciones.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/JavaClaseTri2.iml" filepath="$PROJECT_DIR$/.idea/JavaClaseTri2.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaEjercicios/JavaEjercicios.iml" filepath="$PROJECT_DIR$/JavaEjercicios/JavaEjercicios.iml" />
     </modules>

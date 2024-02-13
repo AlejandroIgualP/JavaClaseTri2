@@ -1,14 +1,11 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
-
 public class ExtraEjercicio {
-    File carpeta= new File("C:\\Users\\Aleja\\OneDrive\\Escritorio\\Java\\JavaClaseTri2\\Ciclismo\\src\\Equipos");
+    File carpeta= new File("src\\Equipos");
     File[] lista_archivos = carpeta.listFiles();
-
     // private String[] rutasDeArchivos = {"C:\\Users\\Aleja\\OneDrive\\Escritorio\\Java\\JavaClaseTri2\\Ciclismo\\src\\Equipos\\Movistar.txt", "C:\\Users\\Aleja\\OneDrive\\Escritorio\\Java\\JavaClaseTri2\\Ciclismo\\src\\Equipos\\Visma.txt", "C:\\Users\\Aleja\\OneDrive\\Escritorio\\Java\\JavaClaseTri2\\Ciclismo\\src\\Equipos\\Emirates.txt"};
     private HashMap<String, ArrayList<Ciclismo>> equipos = new HashMap<>();
-
     public ExtraEjercicio() {
         Cargar_Datos();
         DevolverEquipoCiclista("Jorge Arcas");
@@ -18,9 +15,7 @@ public class ExtraEjercicio {
         Hacer_media_de_equipos();
         Hacer_max_media_equipos();
         Mas_corredores_tiene();
-
     }
-
     public String DevolverEquipoCiclista(String nombre_jugador) {
         boolean corredor = false;
         String equipo_bueno = "";
@@ -32,14 +27,11 @@ public class ExtraEjercicio {
                     corredor = true;
                     equipo_bueno = buscar_equipo;
                 }
-
             }
-
         }
         System.out.println("Ejecicio Extra " + " El corredor esta " + corredor + " " + equipo_bueno);
         return equipo_bueno;
     }
-
     public void Cargar_Datos() {
         for (File archivo : lista_archivos) {
             String nombreArchivo = archivo.getName();
@@ -53,7 +45,6 @@ public class ExtraEjercicio {
                     if (partes.length == 3) {
                         ciclistas.add(new Ciclismo(partes[0], partes[1], Integer.parseInt(partes[2].split(" ")[0])));
                     }
-
                 }
                 equipos.put(nombreArchivo.replace(".txt", ""), ciclistas);
             } catch (FileNotFoundException e) {
@@ -61,7 +52,6 @@ public class ExtraEjercicio {
             }
         }
     }
-
     public void Max_corredores() {
         int total_corredores = 0;
         String max_equipo = "";
@@ -71,11 +61,9 @@ public class ExtraEjercicio {
                 total_corredores = lista_equipo.size();
                 max_equipo = re_equipos;
             }
-
         }
         System.out.println("El equipo con mas corredores es " + max_equipo);
     }
-
     public void Min_corredores() {
         int min_corredores = 0;
         String min_equipo = "";
@@ -95,7 +83,6 @@ public class ExtraEjercicio {
         }
         System.out.println("El equipos con menos corredores es " + min_equipo);
     }
-
     public void Ciclista_buscar() {
         boolean corredor = false;
         String equipo_bueno = "";
@@ -107,13 +94,10 @@ public class ExtraEjercicio {
                     corredor = true;
                     equipo_bueno = buscar_equipo;
                 }
-
             }
-
         }
         System.out.println("El corredor esta " + corredor + " " + equipo_bueno);
     }
-
     // Hacer media de edades del equipo con menos corredores
     public void Hacer_media_de_equipos() {
         double media = 0;
@@ -124,13 +108,13 @@ public class ExtraEjercicio {
             ArrayList<Ciclismo> lista_equipos = equipos.get(equipos_lista);
             // Media de todos
             for (Ciclismo ciclistas : lista_equipos) {
-                media = media + ciclistas.getEdad();
+                media += ciclistas.getEdad();
+
             }
             media = media / lista_equipos.size();
             if (menor_media > media) {
                 menor_media=media;
                 equipo=equipos_lista;
-
             }
         }
         System.out.println("El equipo con menor " + equipo);
@@ -150,7 +134,6 @@ public class ExtraEjercicio {
             if (menor_media < media) {
                 menor_media=media;
                 equipo=equipos_lista;
-
             }
         }
         System.out.println("El equipos con mayor media es "+ equipo);
