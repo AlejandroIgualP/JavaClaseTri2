@@ -13,10 +13,9 @@ public class Bicicleta implements Pintar {
 
     @Override
     public String toString() {
-        return "Bicicleta{" +
+        return "Bicicleta" +
                 "color='" + color + '\'' +
-                ", precio=" + precio +
-                '}';
+                ", precio=" + precio;
     }
 
     public String getColor() {
@@ -39,7 +38,7 @@ public class Bicicleta implements Pintar {
 
     @Override
     public Object pintar(String color) {
-        this.precio=90;
+        this.precio+=90;
         this.color=color;
         return null;
     }

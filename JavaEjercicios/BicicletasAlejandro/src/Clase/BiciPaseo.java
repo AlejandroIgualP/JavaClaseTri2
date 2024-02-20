@@ -3,23 +3,19 @@ package Clase;
 import Clase_Abstracta.Bicicleta;
 
 public class BiciPaseo extends Bicicleta {
-    private String tipo;
 
-    public BiciPaseo(String color, double precio) {
+    int velocidad;
+
+    public BiciPaseo(String color, double precio,int velocidad) {
         super(color, precio);
+        this.velocidad = velocidad;
     }
 
     @Override
     public String toString() {
-        return "BiciPaseo"+ super.toString();
+        return "BiciPaseo"+ super.toString()+" La velocidad a la que vas= "+velocidad+"Km ";
     }
 
-    public String getTipo() {
-        return tipo;
-    }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
 }
 
