@@ -15,10 +15,16 @@ public class BiciMontania extends Bicicleta {
             }
 
     }
+public void aumentarMarcha(){
+     this.marcha ++;
 
+}
+public void disminuirMarcha(){
+        this.marcha --;
+}
     @Override
     public String toString() {
-        return "BiciMontaña "+super.toString()+" marcha= "+marcha;
+        return "BiciMontaña "+super.toString()+", Marcha= "+marcha;
 
     }
 

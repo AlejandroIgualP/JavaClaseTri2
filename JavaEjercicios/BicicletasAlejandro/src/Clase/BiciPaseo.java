@@ -6,14 +6,20 @@ public class BiciPaseo extends Bicicleta {
 
     int velocidad;
 
-    public BiciPaseo(String color, double precio,int velocidad) {
+    public BiciPaseo(String color, double precio) {
+        super(color, precio);
+    }
+
+    public BiciPaseo(String color, double precio, int velocidad) {
         super(color, precio);
         this.velocidad = velocidad;
     }
 
+
+
     @Override
     public String toString() {
-        return "BiciPaseo"+ super.toString()+" La velocidad a la que vas= "+velocidad+"Km ";
+        return "BiciPaseo"+ super.toString()+", La velocidad a la que vas= "+velocidad+"Km ";
     }
 
 
