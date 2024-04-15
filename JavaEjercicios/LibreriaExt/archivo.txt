@@ -1,0 +1,1 @@
+{"nombre":"ale","edad":12,"asignatura":"mates","aprobado":true}
