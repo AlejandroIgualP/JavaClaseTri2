@@ -3,6 +3,10 @@ package org.iesch;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -68,6 +72,34 @@ public class Library {
             throw new RuntimeException(e);
         }
         System.out.println(library1);
+
+        //Marshall
+        //Ejercicio 6
+
+        Library library2 = null;
+        try {
+            JAXBContext context = JAXBContext.newInstance(Library.class);
+            Marshaller marshaller = context.createMarshaller();
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,true);
+            marshaller.marshal(library2,new File("LibraryXML.xml"));
+
+        } catch (JAXBException e) {
+            throw new RuntimeException(e);
+        }
+
+        //Deserializacion
+
+        File archivo = new File("LibraryXML.xml");
+        try {
+            JAXBContext context = JAXBContext.newInstance(Library.class);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            Library library3 = (Library) unmarshaller.unmarshal(archivo);
+            System.out.println(library3);
+
+        } catch (JAXBException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
 }
