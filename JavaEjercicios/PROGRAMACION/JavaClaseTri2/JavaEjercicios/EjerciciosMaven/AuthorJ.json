@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<author>
+    <bookWritten xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="book">
+        <author>Jesus Perez</author>
+        <title>Kilo menos</title>
+        <yearPublished>2010</yearPublished>
+    </bookWritten>
+    <bookWritten xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="book">
+        <author>Jesus Perez</author>
+        <title>Yuto Julian</title>
+        <yearPublished>2002</yearPublished>
+    </bookWritten>
+    <bookWritten xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="book">
+        <author>Jesus Perez</author>
+        <title>Write DOS</title>
+        <yearPublished>1978</yearPublished>
+    </bookWritten>
+    <name>Jesus Perez</name>
+</author>

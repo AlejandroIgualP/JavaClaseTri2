@@ -6,11 +6,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+@XmlRootElement
 public class BookStore {
 
     private List<Book> listaBook;
