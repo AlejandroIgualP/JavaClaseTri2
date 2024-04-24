@@ -57,6 +57,7 @@ public class Publisher extends Book{
 
     public static void main(String[] args) {
         List<Book> listaBook = new ArrayList<>();
+        List<String> solo_Titulo = new ArrayList<>();
         Publisher publisher = new Publisher("Pinguino Andante","Calle el Paraiso",listaBook);
 
 
@@ -69,7 +70,9 @@ public class Publisher extends Book{
         publisher.setBooks(listaBook);
 
         for (Book recorrer : listaBook){
-            System.out.println(recorrer.getTitle());
+            String titulo = recorrer.getTitle();
+            solo_Titulo.add(titulo);
         }
+        System.out.println(solo_Titulo);
     }
 }
