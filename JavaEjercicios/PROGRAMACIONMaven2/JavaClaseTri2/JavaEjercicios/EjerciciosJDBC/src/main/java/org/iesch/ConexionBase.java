@@ -1,5 +1,6 @@
 package org.iesch;
 
+import javax.swing.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -155,6 +156,7 @@ EJERCICIO 4
         return listaAlumno;
     }
     */
+    /*
      public List<Alumnos> buscar() {
          List<Alumnos> listaAlumno = new ArrayList<>();
          try {
@@ -270,4 +272,112 @@ EJERCICIO 4
          }
       return listaAlumno;
      }
+     */
+    /*
+    public int insertarCursos () {
+        int numerofilas = 0;
+
+        String nombre = JOptionPane.showInputDialog("Dame un nombre");
+        String instructor = JOptionPane.showInputDialog("Dame un instructor");
+
+
+
+        try {
+            Connection connection = DriverManager.getConnection(url, name, pass);
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO cursos (nombre,instructor) VALUES (?,?)");
+            //autoincremental no debes pasarle nada.
+            preparedStatement.setString(1, nombre);
+            preparedStatement.setString(2, instructor);
+            preparedStatement.execute();
+
+
+            connection.close();
+            preparedStatement.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return numerofilas;
+    }
+    */
+    /*
+    public int borrarCursos () {
+        int numeroFilas = 0;
+
+        String nombre = JOptionPane.showInputDialog("Dame un nombre");
+            try {
+                Connection connection = DriverManager.getConnection(url, name, pass);
+                PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM cursos WHERE nombre = ?");
+                preparedStatement.setString(1,nombre);
+                preparedStatement.execute();
+
+                connection.close();
+                preparedStatement.close();
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            return numeroFilas;
+        }
+
+    }
+     */
+    /*
+    public int ModificarCursos(){
+        int numerosFilas = 0;
+
+        Integer id = Integer.valueOf(JOptionPane.showInputDialog("Dame un id"));
+        String nombre = JOptionPane.showInputDialog("Dame un nombre");
+        String instructor = JOptionPane.showInputDialog("Dame un Instructor");
+
+        try {
+            Connection connection = DriverManager.getConnection(url,name,pass);
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE cursos SET nombre = ? ,instructor = ? WHERE id = ?");
+
+            preparedStatement.setString(1,nombre);
+            preparedStatement.setString(2,instructor);
+            preparedStatement.setInt(3,id);
+            preparedStatement.execute();
+
+            connection.close();
+            preparedStatement.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return numerosFilas;
+    }
+    */
+
+    /*
+    public int listarCursos(){
+        int numeroFilas = 0;
+
+        List<Cursos> listaCursos = new ArrayList<>();
+
+        try {
+            Connection connection = DriverManager.getConnection(url,name,pass);
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM cursos");
+            ResultSet resultSet = preparedStatement.getResultSet();
+
+            while (resultSet.next()){
+                int id = resultSet.getInt("id");
+                String nombre = resultSet.getString("nombre");
+                String instructor = resultSet.getString("instructor");
+
+                Cursos cursos = new Cursos(id,nombre,instructor);
+                listaCursos.add(cursos);
+            }
+
+            preparedStatement.execute();
+            connection.close();
+            preparedStatement.execute();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return numeroFilas;
+    }
+    */
+    //Ejercicio 11 acabar en casa
 }

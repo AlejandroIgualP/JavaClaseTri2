@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
 
         ConexionBase conexionBase = new ConexionBase();
-
+        ConexionBase conexionBaseCursos = new ConexionBase();
         /*Ejercicio 4
         conexionBase.insertarEstudiantes();
         */
@@ -27,9 +27,22 @@ public class Main {
         }
         */
         /*Ejercicio8
-        */
         List<Alumnos> l = conexionBase.buscar();
         System.out.println(l);
+        */
+        /*Ejercicio9
+            Hacer unas tablas Nuevas
+        */
+        /* Ejercicio10
 
+        conexionBaseCursos.insertarCursos();
+        conexionBaseCursos.borrarCursos();
+        conexionBaseCursos.modificarCursos;
+        List<Cursos> listaBuena = conexionBaseCursos.listarCursos();
+        for (Alumnos listaVertical: listaBuena){
+            System.out.println(listaVertical);
+        }
+        */
     }
+
 }
