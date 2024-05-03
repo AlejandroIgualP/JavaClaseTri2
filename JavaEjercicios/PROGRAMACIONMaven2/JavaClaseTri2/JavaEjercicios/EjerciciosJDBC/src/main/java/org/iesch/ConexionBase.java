@@ -379,5 +379,24 @@ EJERCICIO 4
         return numeroFilas;
     }
     */
-    //Ejercicio 11 acabar en casa
+
+    public int InsertarAlumnoCurso(){
+        int numeroFilas = 0;
+        int id_curso = Integer.parseInt(JOptionPane.showInputDialog("Dame un id de un cursos"));
+        int id_alumno = Integer.parseInt(JOptionPane.showInputDialog("Dame un id de alumnos"));
+        try {
+            Connection connection = DriverManager.getConnection(url,name,pass);
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO matriculados (id_curso,id_alumno) VALUES (?,?)");
+            statement.setInt(1,id_curso);
+            statement.setInt(2,id_alumno);
+            statement.execute();
+
+            connection.close();
+            statement.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return numeroFilas;
+    }
 }

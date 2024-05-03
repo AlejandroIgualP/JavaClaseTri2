@@ -43,6 +43,13 @@ public class Main {
             System.out.println(listaVertical);
         }
         */
-    }
+        /* Ejercicio 11
+        conexionBaseCursos.InsertarAlumnoCurso();
+        */
 
+        /*Ejercicio 12 */
+
+
+
+    }
 }
