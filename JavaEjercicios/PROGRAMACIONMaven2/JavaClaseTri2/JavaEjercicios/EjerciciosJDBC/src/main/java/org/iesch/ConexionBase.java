@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 
 public class ConexionBase {
@@ -371,7 +370,7 @@ EJERCICIO 4
 
             preparedStatement.execute();
             connection.close();
-            preparedStatement.execute();
+            preparedStatement.close();
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -380,6 +379,7 @@ EJERCICIO 4
     }
     */
 
+    /*
     public int InsertarAlumnoCurso(){
         int numeroFilas = 0;
         int id_curso = Integer.parseInt(JOptionPane.showInputDialog("Dame un id de un cursos"));
@@ -399,4 +399,81 @@ EJERCICIO 4
         }
         return numeroFilas;
     }
+    */
+
+    /*
+    public int Desmatricular(){
+        int numeroFilas = 0;
+        int id_matricula = Integer.parseInt(JOptionPane.showInputDialog("Dame un id de una matricula"));
+        int id_alumno = Integer.parseInt(JOptionPane.showInputDialog("Dame un id de un alumno"));
+
+
+        try {
+            Connection connection = DriverManager.getConnection(url,name,pass);
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM matriculados WHERE id_matricula = ? AND id_alumno = ?");
+            statement.setInt(1,id_matricula);
+            statement.setInt(2,id_alumno);
+            statement.execute();
+
+            connection.close();
+            statement.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return numeroFilas;
+    }
+    */
+    /*
+    public int ModificarCursosEMatriculas(){
+        int numeroFilas = 0;
+        int id_matricula = Integer.parseInt(JOptionPane.showInputDialog("Dame una matricula"));
+        int id_curso = Integer.parseInt(JOptionPane.showInputDialog("Dame un id de un curso"));
+        try {
+
+             Connection  connection = DriverManager.getConnection(url,name,pass);
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE matriculados SET id_matricula = ? AND id_curos = ?");
+            preparedStatement.setInt(1,id_matricula);
+            preparedStatement.setInt(2,id_curso);
+            preparedStatement.execute();
+
+            connection.close();
+            preparedStatement.close();
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        return numeroFilas;
+    }
+     */
+
+    public List<Matriculados> listadoMatriculado(){
+        List<Matriculados> listaCursos = new ArrayList<>();
+
+        int id_alumno = Integer.parseInt(JOptionPane.showInputDialog("Dame el id de un alumno"));
+        try {
+            Connection connection = DriverManager.getConnection(url,name,pass);
+            PreparedStatement statement = connection.prepareStatement("Select id_curso FROM matriculados WHERE id_alumno = ?");
+            ResultSet resultSet = statement.getResultSet();
+
+                statement.setInt(1,id_alumno);
+                int id_curso = resultSet.getInt("id_curso");
+                int id_alumnoBueno = resultSet.getInt("id_alumno");
+
+
+
+                Matriculados matriculados = new Matriculados(id_curso,id_alumnoBueno);
+                listaCursos.add(matriculados);
+
+
+            statement.execute();
+            connection.close();
+            statement.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return listaCursos;
+    }
+
 }

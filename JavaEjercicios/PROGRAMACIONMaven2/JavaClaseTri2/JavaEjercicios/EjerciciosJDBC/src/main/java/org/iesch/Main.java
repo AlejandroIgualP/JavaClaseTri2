@@ -47,7 +47,21 @@ public class Main {
         conexionBaseCursos.InsertarAlumnoCurso();
         */
 
-        /*Ejercicio 12 */
+        /*Ejercicio 12
+        conexionBaseCursos.Desmatricular();
+        */
+
+        /*Ejercicio13
+        conexionBaseCursos.ModificarCursosEMatriculas();
+        */
+
+        /*Ejercicio14
+            */
+
+        List<Matriculados> listaBuena = conexionBaseCursos.listadoMatriculado();
+        for (Matriculados listaVertical: listaBuena) {
+            System.out.println(listaVertical);
+        }
 
 
 
