@@ -12,6 +12,7 @@ public class ConexionBase {
     private static final String name = "root";
     private static final String pass = "1234";
 
+
     public static void main(String[] args) {
         //metodo main
 
@@ -446,34 +447,97 @@ EJERCICIO 4
         return numeroFilas;
     }
      */
-
+    /*
     public List<Matriculados> listadoMatriculado(){
         List<Matriculados> listaCursos = new ArrayList<>();
 
-        int id_alumno = Integer.parseInt(JOptionPane.showInputDialog("Dame el id de un alumno"));
-        try {
+            try {
+
+            int id_alumnoUnic = Integer.parseInt(JOptionPane.showInputDialog("Dame un id"));
+
             Connection connection = DriverManager.getConnection(url,name,pass);
-            PreparedStatement statement = connection.prepareStatement("Select id_curso FROM matriculados WHERE id_alumno = ?");
-            ResultSet resultSet = statement.getResultSet();
+            PreparedStatement preparedStatement = connection.prepareStatement("Select id_curso FROM matriculados WHERE id_alumno = ?");
+            preparedStatement.setInt(1,id_alumnoUnic);
+            ResultSet resultSet = preparedStatement.executeQuery();
 
-                statement.setInt(1,id_alumno);
+            while (resultSet.next()) {
                 int id_curso = resultSet.getInt("id_curso");
-                int id_alumnoBueno = resultSet.getInt("id_alumno");
 
 
 
-                Matriculados matriculados = new Matriculados(id_curso,id_alumnoBueno);
+                Matriculados matriculados = new Matriculados(id_curso,id_alumnoUnic);
                 listaCursos.add(matriculados);
+            }
 
-
-            statement.execute();
+            preparedStatement.execute();
             connection.close();
-            statement.close();
+            preparedStatement.close();
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return listaCursos;
     }
+     */
 
+    public List<Matriculados> CursosExistentes(){
+        List<Matriculados> listaCursos = new ArrayList<>();
+
+
+
+            try {
+                Connection connection = DriverManager.getConnection(url,name,pass);
+                PreparedStatement preparedStatement = connection.prepareStatement("Select id_curso,id_alumno FROM matriculados");
+                ResultSet resultSet = preparedStatement.executeQuery();
+
+                while (resultSet.next()) {
+
+                    int id_curso = resultSet.getInt("id_curso");
+                    int id_alumno = resultSet.getInt("id_alumno");
+
+                    Matriculados matriculados = new Matriculados(id_curso,id_alumno);
+                    listaCursos.add(matriculados);
+
+
+                }
+                preparedStatement.execute();
+                connection.close();
+                preparedStatement.close();
+                resultSet.close();
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            return listaCursos;
+    }
+    public List<Alumnos> CursoSeleccionado(){
+        List<Alumnos> listaCursoSeleccionado = new ArrayList<>();
+        int id_cursos = Integer.parseInt(JOptionPane.showInputDialog("Dame un id de los cursos vistos"));
+
+        try {
+            Connection connection1 = DriverManager.getConnection(url,name,pass);
+            PreparedStatement preparedStatement1 = connection1.prepareStatement("Select id,nombre,apellidos,direccion FROM alumno INNER JOIN matriculados ON alumno.id = matriculados.id_alumno WHERE id_curso = ? ");
+            preparedStatement1.setInt(1,id_cursos);
+            ResultSet resultSet1 = preparedStatement1.executeQuery();
+
+            while (resultSet1.next()){
+                int id = resultSet1.getInt("id");
+                String nombre = resultSet1.getString("nombre");
+                String apellidos = resultSet1.getString("apellidos");
+                String direccion = resultSet1.getString("direccion");
+
+                Alumnos alumnos = new Alumnos(id,nombre,apellidos,direccion);
+                listaCursoSeleccionado.add(alumnos);
+            }
+
+            preparedStatement1.execute();
+            connection1.close();
+            preparedStatement1.close();
+            resultSet1.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return listaCursoSeleccionado;
+    }
 }
