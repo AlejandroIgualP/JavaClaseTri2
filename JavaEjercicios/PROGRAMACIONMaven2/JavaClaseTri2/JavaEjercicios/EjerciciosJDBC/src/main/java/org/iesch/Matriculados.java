@@ -7,7 +7,6 @@ public class Matriculados {
     private Integer id_alumno;
 
     public Matriculados(Integer id_curso, Integer id_alumno) {
-
         this.id_curso = id_curso;
         this.id_alumno = id_alumno;
     }

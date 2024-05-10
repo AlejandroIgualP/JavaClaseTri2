@@ -1,5 +1,6 @@
 package org.iesch;
 
+import javax.swing.*;
 import java.util.List;
 
 public class Main {
@@ -56,14 +57,23 @@ public class Main {
         */
 
         /*Ejercicio14
-            */
-
         List<Matriculados> listaBuena = conexionBaseCursos.listadoMatriculado();
         for (Matriculados listaVertical: listaBuena) {
             System.out.println(listaVertical);
         }
-
-
+        */
+        //Ejercicio15
+        //Parte1
+        List<Matriculados> ListaBuena = conexionBaseCursos.CursosExistentes();
+        for (Matriculados listaVertical: ListaBuena) {
+            System.out.println(listaVertical);
+        }
+        System.out.println("------------------------------------------------------------");
+        //Parte2
+        List<Alumnos> ListaBuenas = conexionBaseCursos.CursoSeleccionado();
+        for (Alumnos listaVertical: ListaBuenas){
+            System.out.println(listaVertical);
+        }
 
     }
 }
