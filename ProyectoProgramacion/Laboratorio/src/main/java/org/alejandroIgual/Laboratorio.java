@@ -1,13 +1,12 @@
 package org.alejandroIgual;
 
 import javax.swing.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.Period;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Scanner;
 
 public class Laboratorio {
     private int id;
@@ -99,6 +98,8 @@ public class Laboratorio {
 
     //Metodos
 
+    //Clinicas
+
     public void crearClinicas(){
         String nombre = JOptionPane.showInputDialog("Dame un nombre de una Clinica");
 
@@ -176,16 +177,150 @@ public class Laboratorio {
         }
     }
 
+    public List<Clinicas> listarEstudiantes() {
+        List<Clinicas> listaClinicas = new ArrayList<>();
+        try {
+            Connection connection = DriverManager.getConnection(url, name, pass);
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("Select * FROM alumno");
 
-    //Ejecutar Metodos
-    public static void main(String[] args) {
+            while (resultSet.next()) {
+                String nombre = resultSet.getString("nombre");
 
-    Laboratorio laboratorio = new Laboratorio();
-    //laboratorio.crearClinicas();
-    //laboratorio.BorrarClinicas();
-    //laboratorio.ModificarClinicas();
-    //laboratorio.VerClinica();
+                Clinicas clinicas = new Clinicas(nombre);
+                listaClinicas.add(clinicas);
 
+            }
+            resultSet.close();
+            statement.close();
+            connection.close();
 
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return listaClinicas;
     }
+
+    //---------------------------------------------------------------------------------------------------------------------
+    //CIENTIFICOS
+
+    public List<Cientificos> Metodos() {
+        List<Cientificos> listaCientificos = new ArrayList<>();
+        try {
+            Connection connection = DriverManager.getConnection(url, name, pass);
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Dame un numero de 1->(Insertar Cientifico) | 2-> (Borrar Cientifico) | 3->(Modificar Cientifico) | 4-> (Ver los cientificos)" );
+            int numero = scanner.nextInt();
+
+            switch (numero) {
+
+                case 1: {
+                    System.out.println("Usted eligio la opcion 1");
+                    System.out.println("Dame un id");
+                    int ids = scanner.nextInt();
+                    PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM alumno WHERE id =?");
+                    preparedStatement.setInt(1, ids);
+                    ResultSet resultSet = preparedStatement.executeQuery();
+
+                    while (resultSet.next()) {
+                        int id = resultSet.getInt("id");
+                        String nombre = resultSet.getString("nombre");
+                        String apellidos = resultSet.getString("apellidos");
+                        String direccion = resultSet.getString("direccion");
+
+                        Alumnos alumnos = new Alumnos(id, nombre, apellidos, direccion);
+                        listaAlumno.add(alumnos);
+                    }
+                    resultSet.close();
+                    preparedStatement.close();
+                    connection.close();
+
+                    break;
+                }
+
+                case 2: {
+                    System.out.println("Usted eligió la opcion 2");
+                    System.out.println("Dame un nombre");
+                    String nombres = scanner.next();
+                    System.out.println("Dame un apellido");
+                    String apellido = scanner.next();
+
+                    PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM alumno WHERE nombre =?");
+                    preparedStatement.setString(1, nombres);
+                    PreparedStatement preparedStatements = connection.prepareStatement("SELECT * FROM alumno WHERE apellidos = ?");
+                    preparedStatements.setString(1,apellido);
+
+                    ResultSet resultSet = preparedStatement.executeQuery();
+
+                    while (resultSet.next()) {
+
+                        String nombre = resultSet.getString("nombre");
+                        String apellidos = resultSet.getString("apellidos");
+                        String direccion = resultSet.getString("direccion");
+                        int id = resultSet.getInt("id");
+
+                        Alumnos alumnos = new Alumnos(id, nombre, apellidos, direccion);
+                        listaAlumno.add(alumnos);
+                    }
+                    resultSet.close();
+                    preparedStatement.close();
+                    connection.close();
+
+
+                    break;
+                }
+
+                case 3: {
+
+                    System.out.println("Usted eligió la opcion 3");
+                    System.out.println("Dame un nombre Incompleto");
+                    String nombreIncompleto = scanner.next();
+
+                    System.out.println("Dame un apellido Incompleto");
+                    String apellidoIncompleto = scanner.next();
+
+                    PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM alumno WHERE nombre LIKE ? OR apellidos LIKE ?");
+                    preparedStatement.setString(1, '%'+nombreIncompleto+'%');
+                    preparedStatement.setString(2,'%'+apellidoIncompleto+'%');
+
+                    ResultSet resultSet = preparedStatement.executeQuery();
+
+                    while (resultSet.next()) {
+
+                        String nombre = resultSet.getString("nombre");
+                        String apellidos = resultSet.getString("apellidos");
+                        String direccion = resultSet.getString("direccion");
+                        int id = resultSet.getInt("id");
+
+                        Alumnos alumnos = new Alumnos(id, nombre, apellidos, direccion);
+                        listaAlumno.add(alumnos);
+                    }
+                    resultSet.close();
+                    preparedStatement.close();
+                    connection.close();
+
+
+
+                    break;
+                }
+                case 4:{
+
+
+
+
+
+
+                }
+                default: {
+                    System.out.println("Pon un numero de 1 - 4 PORFAVOR");
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return listaCientificos;
+    }
+
+
+
 }
