@@ -18,8 +18,10 @@ public class Main {
         //System.out.println(listaBuenas);
         //}
 
-        //CIENNTIFICOS
+        //CIENTIFICOS
+
         Laboratorio laboratorioCientificos = new Laboratorio();
+        laboratorioCientificos.Metodos();
 
 
 

@@ -1,12 +1,17 @@
 package org.alejandroIgual;
 
 import javax.swing.*;
+import java.awt.*;
 import java.sql.*;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.Period;
-import java.util.ArrayList;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 import java.util.List;
-import java.util.Optional;
-import java.util.Scanner;
 
 public class Laboratorio {
     private int id;
@@ -208,106 +213,58 @@ public class Laboratorio {
         List<Cientificos> listaCientificos = new ArrayList<>();
         try {
             Connection connection = DriverManager.getConnection(url, name, pass);
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Dame un numero de 1->(Insertar Cientifico) | 2-> (Borrar Cientifico) | 3->(Modificar Cientifico) | 4-> (Ver los cientificos)" );
-            int numero = scanner.nextInt();
 
-            switch (numero) {
 
-                case 1: {
-                    System.out.println("Usted eligio la opcion 1");
-                    System.out.println("Dame un id");
-                    int ids = scanner.nextInt();
-                    PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM alumno WHERE id =?");
-                    preparedStatement.setInt(1, ids);
-                    ResultSet resultSet = preparedStatement.executeQuery();
 
-                    while (resultSet.next()) {
-                        int id = resultSet.getInt("id");
-                        String nombre = resultSet.getString("nombre");
-                        String apellidos = resultSet.getString("apellidos");
-                        String direccion = resultSet.getString("direccion");
+            String [] opciones ={"Insertar cientifico","Borrar cientifico","Modificar cientifico","Buscar cientifico"};
+            String opcion = (String) JOptionPane.showInputDialog(null,"Elige lo que quieras hacer","Elegir",JOptionPane.PLAIN_MESSAGE,null,opciones,opciones[0]);
 
-                        Alumnos alumnos = new Alumnos(id, nombre, apellidos, direccion);
-                        listaAlumno.add(alumnos);
-                    }
-                    resultSet.close();
-                    preparedStatement.close();
-                    connection.close();
+            switch (opcion) {
 
-                    break;
+                case "Insertar cientifico": {
+
+                    String nombre = JOptionPane.showInputDialog(null,"Dame un nombre","Nombre",JOptionPane.QUESTION_MESSAGE);
+                    String apellidos = JOptionPane.showInputDialog("Dame unos apellidos");
+                    String fecha_nacimiento = JOptionPane.showInputDialog("Dame tu fecha de nacimiento");
+
+                    DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    LocalDate fecha = LocalDate.parse(fecha_nacimiento, formato);
+
+                    int telefono = Integer.valueOf(JOptionPane.showInputDialog("Dame tu numero de telefono"));
+
+
+
+
+                       PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO cientificos (nombre,apellidos,fecha_nacimiento,telefono) VALUES (?,?,?,?)");
+                       preparedStatement.setString(1, nombre);
+                       preparedStatement.setString(2, apellidos);
+                       preparedStatement.setDate(3, Date.valueOf(fecha));
+                       preparedStatement.setInt(4, telefono);
+                       preparedStatement.execute();
+
+
+                       preparedStatement.close();
+                       connection.close();
+
+                       break;
                 }
 
-                case 2: {
+                case "Borrar cientifico": {
                     System.out.println("Usted eligió la opcion 2");
-                    System.out.println("Dame un nombre");
-                    String nombres = scanner.next();
-                    System.out.println("Dame un apellido");
-                    String apellido = scanner.next();
 
-                    PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM alumno WHERE nombre =?");
-                    preparedStatement.setString(1, nombres);
-                    PreparedStatement preparedStatements = connection.prepareStatement("SELECT * FROM alumno WHERE apellidos = ?");
-                    preparedStatements.setString(1,apellido);
-
-                    ResultSet resultSet = preparedStatement.executeQuery();
-
-                    while (resultSet.next()) {
-
-                        String nombre = resultSet.getString("nombre");
-                        String apellidos = resultSet.getString("apellidos");
-                        String direccion = resultSet.getString("direccion");
-                        int id = resultSet.getInt("id");
-
-                        Alumnos alumnos = new Alumnos(id, nombre, apellidos, direccion);
-                        listaAlumno.add(alumnos);
-                    }
-                    resultSet.close();
-                    preparedStatement.close();
-                    connection.close();
 
 
                     break;
                 }
 
-                case 3: {
-
+                case "Modificar cientifico": {
                     System.out.println("Usted eligió la opcion 3");
-                    System.out.println("Dame un nombre Incompleto");
-                    String nombreIncompleto = scanner.next();
-
-                    System.out.println("Dame un apellido Incompleto");
-                    String apellidoIncompleto = scanner.next();
-
-                    PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM alumno WHERE nombre LIKE ? OR apellidos LIKE ?");
-                    preparedStatement.setString(1, '%'+nombreIncompleto+'%');
-                    preparedStatement.setString(2,'%'+apellidoIncompleto+'%');
-
-                    ResultSet resultSet = preparedStatement.executeQuery();
-
-                    while (resultSet.next()) {
-
-                        String nombre = resultSet.getString("nombre");
-                        String apellidos = resultSet.getString("apellidos");
-                        String direccion = resultSet.getString("direccion");
-                        int id = resultSet.getInt("id");
-
-                        Alumnos alumnos = new Alumnos(id, nombre, apellidos, direccion);
-                        listaAlumno.add(alumnos);
-                    }
-                    resultSet.close();
-                    preparedStatement.close();
-                    connection.close();
-
 
 
                     break;
                 }
-                case 4:{
-
-
-
-
+                case "Buscar cientifico":{
+                    System.out.println("Usted eligio la opcion 4");
 
 
                 }
@@ -320,7 +277,5 @@ public class Laboratorio {
         }
         return listaCientificos;
     }
-
-
 
 }
