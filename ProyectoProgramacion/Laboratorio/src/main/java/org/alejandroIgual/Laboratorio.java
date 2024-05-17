@@ -1,5 +1,6 @@
 package org.alejandroIgual;
 
+import javax.imageio.plugins.jpeg.JPEGImageWriteParam;
 import javax.swing.*;
 import java.awt.*;
 import java.sql.*;
@@ -206,10 +207,10 @@ public class Laboratorio {
         return listaClinicas;
     }
 
-    //---------------------------------------------------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     //CIENTIFICOS
 
-    public List<Cientificos> Metodos() {
+    public List<Cientificos> Escoger() {
         List<Cientificos> listaCientificos = new ArrayList<>();
         try {
             Connection connection = DriverManager.getConnection(url, name, pass);
@@ -233,8 +234,6 @@ public class Laboratorio {
                     int telefono = Integer.valueOf(JOptionPane.showInputDialog("Dame tu numero de telefono"));
 
 
-
-
                        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO cientificos (nombre,apellidos,fecha_nacimiento,telefono) VALUES (?,?,?,?)");
                        preparedStatement.setString(1, nombre);
                        preparedStatement.setString(2, apellidos);
@@ -252,13 +251,50 @@ public class Laboratorio {
                 case "Borrar cientifico": {
                     System.out.println("Usted eligió la opcion 2");
 
+                    int id = Integer.parseInt(JOptionPane.showInputDialog("Dame un id"));
 
+                    try {
 
+                        PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM cinetificos WHERE id = ?");
+                        preparedStatement.setInt(1,id);
+                        preparedStatement.execute();
+
+                        connection.close();
+                        preparedStatement.close();
+
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
                     break;
                 }
 
                 case "Modificar cientifico": {
                     System.out.println("Usted eligió la opcion 3");
+
+                    Integer id = Integer.valueOf(JOptionPane.showInputDialog("Dame un id"));
+                    String nombre = JOptionPane.showInputDialog("Dame un nuevo nombre");
+                    String apellidos = JOptionPane.showInputDialog("Dame unos nuevo apellidos");
+                    String fecha_nacimiento = JOptionPane.showInputDialog("Dame tu fecha de nacimiento");
+                    DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    LocalDate fecha = LocalDate.parse(fecha_nacimiento, formato);
+                    int telefono = Integer.parseInt(JOptionPane.showInputDialog("Dame un nuevo telefono"));
+
+                    try {
+
+                        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE cientificos SET nombre = ?,apellidos = ?,fecha_nacimiento = ?,telefono = ? WHERE id = ?");
+                        preparedStatement.setString(1,nombre);
+                        preparedStatement.setString(2,apellidos);
+                        preparedStatement.setDate(3, Date.valueOf(fecha));
+                        preparedStatement.setInt(4,telefono);
+                        preparedStatement.setInt(5,id);
+                        preparedStatement.execute();
+
+                        connection.close();
+                        preparedStatement.close();
+
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
 
 
                     break;

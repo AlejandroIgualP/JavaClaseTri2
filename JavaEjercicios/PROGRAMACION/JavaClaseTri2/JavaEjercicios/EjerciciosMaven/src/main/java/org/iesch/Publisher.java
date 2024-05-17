@@ -1,13 +1,16 @@
 package org.iesch;
 
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,6 +49,8 @@ public class Publisher extends Book {
         this.address = address;
     }
 
+    @XmlElement(name = "Libro")
+    @XmlJavaTypeAdapter(AdaptadorTituloLibros.class)
     public List<Book> getBooks() {
         return books;
     }
@@ -53,6 +58,17 @@ public class Publisher extends Book {
     public void setBooks(List<Book> books) {
         this.books = books;
     }
+
+    @JsonGetter("books")
+    public List<String> getBookTitles(){
+        List<String> listaTitulos = new ArrayList<>();
+        for (Book libro : books) {
+            String title = libro.getTitle();
+            listaTitulos.add(title);
+        }
+        return listaTitulos;
+    }
+
 
     @Override
     public String toString() {

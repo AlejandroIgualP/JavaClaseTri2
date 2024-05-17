@@ -1,0 +1,4 @@
+De json deserializar y pasar a objetos.
+De json insertar en un base de datos
+Serializar y buscar algo con consultas dentro de el.
+hazme un ejercicio con databaseMetaData y con eso puedes controlar con if.
