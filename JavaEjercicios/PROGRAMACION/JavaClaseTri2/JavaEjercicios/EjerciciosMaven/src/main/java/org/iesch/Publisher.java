@@ -16,12 +16,12 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 @XmlRootElement
-public class Publisher extends Book{
+public class Publisher extends Book {
     private String name;
     private String address;
     private List<Book> books;
 
-    public Publisher(){
+    public Publisher() {
     }
 
     public Publisher(String name, String address, List<Book> books) {
@@ -67,63 +67,52 @@ public class Publisher extends Book{
 
         List<Book> listaBook = new ArrayList<>();
         List<String> solo_Titulo = new ArrayList<>();
-        Publisher publisher = new Publisher("Pinguino Andante","Calle el Paraiso",listaBook);
+        Publisher publisher = new Publisher("Pinguino Andante", "Calle el Paraiso", listaBook);
 
 
-        Book book = new Book("Camion Volador","Pepe Alves","2010");
-        Book book2 = new Book("Turco Bop","Dani Lomo","2015");
+        Book book = new Book("Camion Volador", "Pepe Alves", "2010");
+        Book book2 = new Book("Turco Bop", "Dani Lomo", "2015");
 
 
         listaBook.add(book);
         listaBook.add(book2);
         publisher.setBooks(listaBook);
 
-        for (Book recorrer : listaBook){
-<<<<<<< HEAD
+        for (Book recorrer : listaBook) {
             String titulo = recorrer.getTitle();
             solo_Titulo.add(titulo);
-        }
-        System.out.println(solo_Titulo);
-=======
-            System.out.println(recorrer.getTitle());
+
+            System.out.println(solo_Titulo);
 
 
-        // Serializar en Json
-        ObjectMapper objectMapper = new ObjectMapper();
+            // Serializar en Json
+            ObjectMapper objectMapper = new ObjectMapper();
             try {
                 String json = objectMapper.writeValueAsString(recorrer.getTitle());
                 System.out.println(json);
-                objectMapper.writeValue(new File("Publisher.json"),recorrer.getTitle());
+                objectMapper.writeValue(new File("Publisher.json"), recorrer.getTitle());
 
             } catch (JsonProcessingException e) {
                 throw new RuntimeException(e);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-
-        //Serializar en Xml
-            Book libroXML = new Book("No se que pasa","Juanma Pepe","1999");
-
-            try {
-
-                File archivo = new File("PubliserXml.xml");
-                JAXBContext context = JAXBContext.newInstance(Publisher.class);
-                Marshaller marshaller = context.createMarshaller();
-                marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,true);
-                marshaller.marshal(libroXML.getTitle(),archivo);
-
-
-
-
-            } catch (JAXBException e) {
-                throw new RuntimeException(e);
-            }
-
-
         }
 
+        //Serializar en Xml
+        Book libroXML = new Book("No se que pasa", "Juanma Pepe", "1999");
+
+        try {
+
+            File archivo = new File("PubliserXml.xml");
+            JAXBContext context = JAXBContext.newInstance(Publisher.class);
+            Marshaller marshaller = context.createMarshaller();
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            marshaller.marshal(libroXML.getTitle(), archivo);
 
 
->>>>>>> 32aa606093a3ea5727232513ca2b64a2f74db5d2
+        } catch (JAXBException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
