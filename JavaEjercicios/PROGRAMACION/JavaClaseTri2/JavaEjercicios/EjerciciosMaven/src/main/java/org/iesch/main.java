@@ -6,6 +6,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import java.io.File;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -31,7 +36,7 @@ public class main {
 
         try {
          String json = objectMapper.writeValueAsString(publisher);
-            System.out.println(json);
+         System.out.println(json);
 
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
@@ -42,10 +47,26 @@ public class main {
             JAXBContext context = JAXBContext.newInstance(Publisher.class);
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,true);
-            marshaller.marshal(publisher,System.out);
+           marshaller.marshal(publisher,System.out);
         } catch (JAXBException e) {
             throw new RuntimeException(e);
         }
+
+
+        //De objetos a Importar base de datos
+
+        ObjectMapper objectMapper1 = new ObjectMapper();
+        try {
+            Connection connection = DriverManager.getConnection();
+            Book json = objectMapper1.readValue(new File("book.json"),Book.class);
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO alumno VALUES (?,?)");
+            preparedStatement.
+
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 }

@@ -1,0 +1,16 @@
+CREATE DATABASE openData;
+use openData;
+CREATE TABLE datos(
+        localidad VARCHAR(100),
+        tasa_graduacion float,
+        media_cursos_matriculados float,
+        tipo_estudio VARCHAR(100),
+        estudio VARCHAR(100),
+        sexo VARCHAR(100),
+        tasa_abandono_inicial float,
+        alumnos_graduados int,
+        curso_academico int,
+        alumnos_graduados_en_tiempo int,
+        tasa_abandono float,
+        alumnos_interrumpen_estudios int,
+        alumnos_interrumpen_est_ano1 int);
