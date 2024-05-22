@@ -64,16 +64,8 @@ public class Main {
         */
         //Ejercicio15
         //Parte1
-        List<Matriculados> ListaBuena = conexionBaseCursos.CursosExistentes();
-        for (Matriculados listaVertical: ListaBuena) {
-            System.out.println(listaVertical);
-        }
-        System.out.println("------------------------------------------------------------");
-        //Parte2
-        List<Alumnos> ListaBuenas = conexionBaseCursos.CursoSeleccionado();
-        for (Alumnos listaVertical: ListaBuenas){
-            System.out.println(listaVertical);
-        }
+
+        int numero = Integer.parseInt(JOptionPane.showInputDialog("Dame un  numero"));
 
     }
 }

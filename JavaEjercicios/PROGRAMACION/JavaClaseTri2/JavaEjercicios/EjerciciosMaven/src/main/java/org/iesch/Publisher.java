@@ -49,8 +49,11 @@ public class Publisher extends Book {
         this.address = address;
     }
 
+
+    //Para sacarlo a traves XMl solo el titulo
     @XmlElement(name = "Libro")
     @XmlJavaTypeAdapter(AdaptadorTituloLibros.class)
+
     public List<Book> getBooks() {
         return books;
     }
@@ -59,6 +62,8 @@ public class Publisher extends Book {
         this.books = books;
     }
 
+
+    //Solo el titulo de los libros en el JSON
     @JsonGetter("books")
     public List<String> getBookTitles(){
         List<String> listaTitulos = new ArrayList<>();
