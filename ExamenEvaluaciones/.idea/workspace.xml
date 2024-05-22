@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b088dfae-8f7c-4869-939d-f4e58f1ffd20" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../ExamenTR3/Captura de pantalla 2024-05-17 100816.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ExamenTR3/Prog1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ExamenTR3/prog2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ExamenTR3/prog4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ExamenTR3/prog5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaEjercicios/Ejercicios3evaluacion/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaEjercicios/Ejercicios3evaluacion/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaEjercicios/Ejercicios3evaluacion/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaEjercicios/Ejercicios3evaluacion/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaEjercicios/Ejercicios3evaluacion/Ejercicios3evaluacion.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaEjercicios/Ejercicios3evaluacion/src/ElegidorArchivo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaEjercicios/Ejercicios3evaluacion/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaEjercicios/Ejercicios3evaluacion/src/VentanaConMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaEjercicios/PROGRAMACION/JavaClaseTri2/JavaEjercicios/EjerciciosMaven/src/main/java/org/iesch/AdaptadorTituloLibros.java" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaEjercicios/PROGRAMACION/JavaClaseTri2/JavaEjercicios/EjerciciosMaven/src/main/java/org/iesch/AdaptadorTituloLibros.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaEjercicios/PROGRAMACION/JavaClaseTri2/JavaEjercicios/EjerciciosMaven/src/main/java/org/iesch/Publisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaEjercicios/PROGRAMACION/JavaClaseTri2/JavaEjercicios/EjerciciosMaven/src/main/java/org/iesch/Publisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../JavaEjercicios/PROGRAMACIONMaven2/JavaClaseTri2/JavaEjercicios/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaEjercicios/PROGRAMACIONMaven2/JavaClaseTri2/JavaEjercicios/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaEjercicios/PROGRAMACIONMaven2/JavaClaseTri2/JavaEjercicios/EjerciciosJDBC/src/main/java/org/iesch/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaEjercicios/PROGRAMACIONMaven2/JavaClaseTri2/JavaEjercicios/EjerciciosJDBC/src/main/java/org/iesch/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProyectoProgramacion/Laboratorio/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoProgramacion/Laboratorio/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,23 +16,38 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2goJSdYMk1PcRFU2R5nV1BGkJxP" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Aleja/OneDrive/Escritorio/JavaClaseTri2/ExamenEvaluaciones"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aleja/OneDrive/Escritorio/JavaClaseTri2/ExamenEvaluaciones&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="ExamenEvaluaciones" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="ExamenEvaluaciones" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
