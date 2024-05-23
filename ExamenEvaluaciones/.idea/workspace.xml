@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b088dfae-8f7c-4869-939d-f4e58f1ffd20" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Examen1TRIS/src/CombinarListaAndres.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaEjercicios/PROGRAMACIONMaven2/JavaClaseTri2/JavaEjercicios/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaEjercicios/PROGRAMACIONMaven2/JavaClaseTri2/JavaEjercicios/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Examen1TRIS/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Examen1TRIS/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Examen1TRIS/src/CombinarListas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Examen1TRIS/src/Ejercicio4/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Examen1TRIS/src/Ejercicio4/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Examen1TRIS/src/EjercicioGenerarNumero.java" beforeDir="false" afterPath="$PROJECT_DIR$/Examen1TRIS/src/EjercicioGenerarNumero.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,30 +28,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aleja/OneDrive/Escritorio/JavaClaseTri2/ExamenEvaluaciones&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Users/dam1/Desktop/JavaClaseTri2/ExamenEvaluaciones"
   }
-}</component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="ExamenEvaluaciones" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="ExamenEvaluaciones" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
