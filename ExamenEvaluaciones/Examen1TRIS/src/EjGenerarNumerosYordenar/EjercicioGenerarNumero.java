@@ -1,5 +1,7 @@
+package EjGenerarNumerosYordenar;
 
-import java.util.Random;
+import java.util.*;
+
 public class EjercicioGenerarNumero{
     public static void main(String[] args) {
         // Crea un objeto Random para generar números aleatorios
@@ -22,11 +24,19 @@ public class EjercicioGenerarNumero{
 
         // Imprime las frecuencias de cada número en orden descendente
         System.out.println("\n\nVeces que se repite cada número:");
+        List<NumeroAleatorio> list = new ArrayList<>();
+
         for (int i = 49; i >= 0; i--) {
             // Si el contador del número es mayor a 0, imprime el número y su frecuencia
             if (cuenta[i] > 0) {
-                System.out.println(i + ": " + cuenta[i]);
+                list.add(new NumeroAleatorio(i,cuenta[i]));
             }
+
         }
+        //list.sort((a,b)-> a.getVeces().compareTo(b.getVeces()));
+        list.sort(Comparator.comparing(NumeroAleatorio::getVeces));
+        list = list.reversed();
+        System.out.println(list);
+
     }
 }
