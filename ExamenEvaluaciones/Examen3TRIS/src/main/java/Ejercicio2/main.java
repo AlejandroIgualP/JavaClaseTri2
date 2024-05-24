@@ -14,11 +14,15 @@ public class main {
     private static String password = "1234";
 
     public static void main(String[] args) {
+
         ObjectMapper objectMapper = new ObjectMapper();
         Datos datos = new Datos();
         PreparedStatement preparedStatement = null;
+
         try {
-            datos = objectMapper.readValue(new File("src/main/java/org/example/Ejercicio2/Uz.json"), Datos.class);
+
+            datos = objectMapper.readValue(new File("Uz.json"), Datos.class);
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
