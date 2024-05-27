@@ -29,8 +29,6 @@ public class MYSQL {
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }finally {
-            if (preparedStatement!=null){try {preparedStatement.close();} catch (SQLException e) {throw new RuntimeException(e);}}
         }
         return lista_personas;
     }
@@ -51,8 +49,7 @@ public class MYSQL {
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }finally {
-            if (preparedStatement!=null){try {preparedStatement.close();} catch (SQLException e) {throw new RuntimeException(e);}}
+
         }
         return lista_productos;
     }
@@ -92,8 +89,7 @@ public class MYSQL {
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }finally {
-            if (preparedStatement!=null){try {preparedStatement.close();} catch (SQLException e) {throw new RuntimeException(e);}}
+
         }
         return lista_carro;
     }
@@ -109,8 +105,6 @@ public class MYSQL {
             preparedStatement.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }finally {
-            if (preparedStatement!=null){try {preparedStatement.close();} catch (SQLException e) {throw new RuntimeException(e);}}
         }
     }
     public static void addcliente(Persona persona){
@@ -123,8 +117,6 @@ public class MYSQL {
             preparedStatement.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }finally {
-            if (preparedStatement!=null){try {preparedStatement.close();} catch (SQLException e) {throw new RuntimeException(e);}}
         }
     }
     public static void addCarro(Carro carro){
@@ -138,8 +130,6 @@ public class MYSQL {
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }finally {
-            if (preparedStatement!=null){try {preparedStatement.close();} catch (SQLException e) {throw new RuntimeException(e);}}
         }
     }
 

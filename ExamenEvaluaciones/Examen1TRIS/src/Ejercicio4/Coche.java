@@ -20,8 +20,8 @@ public class Coche extends Vehiculo {
 
     public String mostrarInfo() {
         if (this.ventanilla.equals("bajada")) {
-            return "El coche con " + super.mostrarInfo() + ", tiene la ventanilla " + this.ventanilla;
+            return "El coche con " + super.toString() + ", tiene la ventanilla " + this.ventanilla;
         }
-        return "El coche con " + super.mostrarInfo();
+        return "El coche con " + super.toString();
     }
 }

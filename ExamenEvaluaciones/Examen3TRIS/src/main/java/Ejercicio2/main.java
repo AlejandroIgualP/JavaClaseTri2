@@ -27,12 +27,11 @@ public class main {
             throw new RuntimeException(e);
         }
 
-        System.out.println(datos.getDatos().toArray().length);
-
         try {
             preparedStatement = DriverManager.getConnection(bd,user,password).prepareStatement("insert into datos(localidad, tasa_graduacion, media_cursos_matriculados, " +
                     "tipo_estudio, estudio, sexo, tasa_abandono_inicial, alumnos_graduados, curso_academico, alumnos_graduados_en_tiempo, tasa_abandono, " +
                     "alumnos_interrumpen_estudios, alumnos_interrumpen_ests_ano1) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+
             for (Estudios estudio: datos.getDatos()) {
                     preparedStatement.setString(1,estudio.getLocalidad());
                     preparedStatement.setFloat(2, estudio.getTasa_graduacion());
@@ -48,16 +47,11 @@ public class main {
                     preparedStatement.setInt(12, estudio.getAlumnos_interrumpen_estudios());
                     preparedStatement.setInt(13, estudio.getAlumnos_interrumpen_est_ano1());
                     preparedStatement.execute();
+
             }
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }finally {
-            if (preparedStatement!=null)
-            {try {preparedStatement.close();
-            } catch (SQLException e) {throw new RuntimeException(e);
-            }
-            }
         }
-
     }
 }

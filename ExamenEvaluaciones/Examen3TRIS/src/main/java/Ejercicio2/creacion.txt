@@ -1,3 +1,36 @@
 create database openData;
 use openData;
 create table datos(id int auto_increment primary key, localidad varchar(80), tasa_graduacion float, media_cursos_matriculados float, tipo_estudio varchar(80), estudio varchar(80), sexo varchar(80), tasa_abandono_inicial float, alumnos_graduados int, curso_academico int, alumnos_graduados_en_tiempo int, tasa_abandono float, alumnos_interrumpen_estudios int, alumnos_interrumpen_ests_ano1 int);
+
+       //Deserializar un Json
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.readValue("Uz.json", Datos.class);
+
+            preparedStatement.execute(" insert into datos(localidad, tasa_graduacion, media_cursos_matriculados,tipo_estudio, estudio, sexo, tasa_abandono_inicial, alumnos_graduados, " +
+                    "curso_academico, alumnos_graduados_en_tiempo, tasa_abandono, alumnos_interrumpen_estudios, alumnos_interrumpen_ests_ano1) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            for (Estudios estudio : datos.getDatos()) {
+                preparedStatement.setString(1, estudio.getLocalidad());
+                preparedStatement.setFloat(2, estudio.getTasa_graduacion());
+                preparedStatement.setFloat(3, estudio.getMedia_cursos_matriculados());
+                preparedStatement.setString(4, estudio.getTipo_estudio());
+                preparedStatement.setString(5, estudio.getEstudio());
+                preparedStatement.setString(6, estudio.getSexo());
+                preparedStatement.setFloat(7, estudio.getTasa_abandono_inicial());
+                preparedStatement.setInt(8, estudio.getAlumnos_graduados());
+                preparedStatement.setInt(9, estudio.getCurso_academico());
+                preparedStatement.setInt(10, estudio.getAlumnos_graduados_en_tiempo());
+                preparedStatement.setFloat(11, estudio.getTasa_abandono());
+                preparedStatement.setInt(12, estudio.getAlumnos_interrumpen_estudios());
+                preparedStatement.setInt(13, estudio.getAlumnos_interrumpen_est_ano1());
+                preparedStatement.execute();
+            }
+            preparedStatement.close();
+            connection.close();
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}

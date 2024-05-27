@@ -13,7 +13,7 @@ public class Main {
         TreeMap<String, Integer> lista_de_palabras = new TreeMap<>();
         Pattern pattern = Pattern.compile("\\b\\w+\\b", Pattern.CASE_INSENSITIVE);
         //Recorremos el archivo
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("src/Metadata in DBMS.txt"))){
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("C:\\Users\\Aleja\\OneDrive\\Escritorio\\JavaClaseTri2\\ExamenEvaluaciones\\Examen2TRIS\\src\\Ejercicio3\\src\\Metadata in DBMS.txt"))){
             String linea;
             while ((linea= bufferedReader.readLine())!=null){
                 Matcher matcher = pattern.matcher(linea);

@@ -68,18 +68,6 @@ class Vehiculo{
         this.numeroRuedas = numeroRuedas;
     }
 
-    @Override
-    public String toString() {
-        return "Vehiculo{" +
-                "nombre='" + nombre + '\'' +
-                ", dorsal=" + dorsal +
-                ", velocidadActual=" + velocidadActual +
-                ", velocidadMaxima=" + velocidadMaxima +
-                ", tipoCombustible='" + tipoCombustible + '\'' +
-                ", numeroRuedas=" + numeroRuedas +
-                '}';
-    }
-
 
     //Metodos
 
@@ -100,11 +88,16 @@ class Vehiculo{
         }
     }
 
-    public String mostrarInfo() {
-        return "Piloto: " + this.nombre + ", Dorsal: " + this.dorsal + ", "
-                + "velocidad actual/maxima: " + this.velocidadActual + "/" + this.velocidadMaxima + ", "
-                + "tipo de combustible: " + this.tipoCombustible + ", num.ruedas: " + this.numeroRuedas;
+    @Override
+    public String toString() {
+        return "Vehiculo{" +
+                "nombre='" + nombre + '\'' +
+                ", dorsal=" + dorsal +
+                ", velocidadActual=" + velocidadActual +
+                ", velocidadMaxima=" + velocidadMaxima +
+                ", tipoCombustible='" + tipoCombustible + '\'' +
+                ", numeroRuedas=" + numeroRuedas +
+                '}';
     }
-
 }
 

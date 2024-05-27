@@ -11,13 +11,19 @@ public class Main {
 
         //Creamos el fichero de destino
         File salida_Ej2 = new File("src/salida_Ej2.txt");
-        try {salida_Ej2.createNewFile();}
+        try {
+            salida_Ej2.createNewFile();
+        }
         catch (IOException e) {throw new RuntimeException(e);}
         BufferedWriter writer = null;
         BufferedReader reader = null;
 
         //Abrimos el fichero para escribir
-        try {writer = new BufferedWriter(new FileWriter(salida_Ej2));} catch (IOException e) {throw new RuntimeException(e);}
+        try {
+            writer = new BufferedWriter(new FileWriter(salida_Ej2));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         //Leemos y escribimos en fichero
         if (writer!=null) {

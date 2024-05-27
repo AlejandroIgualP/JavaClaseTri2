@@ -19,9 +19,9 @@ public class Moto extends Vehiculo {
 
     public String mostrarInfo() {
         if (this.abrochado.equals("abrochado")) {
-            return "La moto con " + super.mostrarInfo() + ", tiene el casco " + this.abrochado;
+            return "La moto con " + super.toString() + ", tiene el casco " + this.abrochado;
         }
-        return "La moto con " + super.mostrarInfo();
+        return "La moto con " + super.toString();
     }
 }
 
